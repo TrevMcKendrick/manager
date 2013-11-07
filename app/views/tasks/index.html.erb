@@ -1,0 +1,31 @@
+<h1>Welcome user</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>These tasks need to be reviewed</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tasks.each do |task| %>
+      <tr>
+        <td><%= link_to task.body, task %></td>
+        <td><%= task.done %></td>
+        <td><%= link_to 'Review work', task.link %></td>
+        <!-- <td><%= link_to 'Details', task %></td> -->
+        <td><%= link_to 'Edit Task', edit_task_path(task) %></td>
+        <td><%= link_to 'Delete', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= label_tag(:done, "Task complete?") %></td>
+        <td><%= check_box_tag(:done) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Task', new_task_path %>

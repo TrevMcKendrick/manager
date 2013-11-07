@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Task:</strong>
+  <%= @task.body %>
+</p>
+
+<p>
+  <strong>Link:</strong>
+  <a href="<%= @task.link %>"><%= parse_url(@task.link) %></a>
+</p>
+
+<%= link_to 'Edit', edit_task_path(@task) %> |
+<%= link_to 'Back', tasks_path %>
